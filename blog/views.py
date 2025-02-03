@@ -6,8 +6,11 @@ from .models import Post
 
 # Create your views here.
 class PostList(generic.ListView):
-    queryset = Post.objects.all()
+    #queryset = Post.objects.all()
+    #queryset = Post.objects.filter(author=2)
+    queryset = Post.objects.filter(status=1)
     template_name = "post_list.html"
+
     #model = Post
 #def my_blog(request):
     #return HttpResponse("Hello, Blog!")
