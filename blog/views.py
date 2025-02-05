@@ -14,7 +14,7 @@ class PostList(generic.ListView):
     paginate_by = 6
 
     #model = Post
-#def my_blog(request):
+    #def my_blog(request):
     #return HttpResponse("Hello, Blog!")
 
 
