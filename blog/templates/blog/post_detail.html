@@ -31,12 +31,12 @@
         </div>
     </div>
     <!-- Displaying count of comments -->
-  <div class="row">
-    <div class="col-12">
-      <strong class="text-secondary">
-        <i class="far fa-comments"></i> {{ comment_count }}
-      </strong>
-    </div>
+    <div class="row">
+        <div class="col-12">
+            <strong class="text-secondary">
+                <i class="far fa-comments"></i> {{ comment_count }}
+            </strong>
+        </div>
     <div class="col-12">
       <hr>
     </div>
@@ -59,6 +59,7 @@
             </span> wrote:
           </p>
           <div id="comment{{ comment.id }}">
+            <!--{{ comment.body | linebreaks }}-->
             {{ comment.body | linebreaks }}
           </div>
           {% if not comment.approved and comment.author == user %}
@@ -73,21 +74,21 @@
     </div>
     <!-- Creating New Comments -->
     <div class="col-md-4 card mb-4 mt-3">
-      <div class="card-body">
-        {% if user.is_authenticated %}
-        <h3>Leave a comment:</h3>
-        <p>Posting as: {{ user.username }}</p>
-        <form id="commentForm" method="post"
-          style="margin-top: 1.3em;">
-          {{ comment_form | crispy }}
-          {% csrf_token %}
-          <button id="submitButton" type="submit"
-            class="btn btn-signup btn-lg">Submit</button>
-        </form>
-        {% else %}
-        <p>Log in to leave a comment</p>
-        {% endif %}
-      </div>
+        <div class="card-body">
+            {% if user.is_authenticated %}
+            <h3>Leave a comment:</h3>
+            <p>Posting as: {{ user.username }}</p>
+            <form id="commentForm" method="post"
+                style="margin-top: 1.3em;">
+                {{ comment_form | crispy }}
+                {% csrf_token %}
+                <button id="submitButton" type="submit"
+                    class="btn btn-signup btn-lg">Submit</button>
+            </form>
+            {% else %}
+            <p>Log in to leave a comment</p>
+            {% endif %}
+        </div>
     </div>
   </div>
 </div>
